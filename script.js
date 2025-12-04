@@ -1,3 +1,14 @@
+document.body.addEventListener('keydown',(event)=>{
+    if (event.key=='r' || event.key=='R'){
+        playGame('rock');
+    }
+    else if (event.key=='p' || event.key=='P'){
+        playGame('paper');
+    }
+    else if (event.key=='s' || event.key=='S'){
+        playGame('scissors');
+    }
+});
 const score=JSON.parse(localStorage.getItem('save-score')) || {
     win:0,
     lose:0,
@@ -10,7 +21,7 @@ function playGame(playerMove){
     let randomNumber=Math.random();
 
     if (randomNumber>=0 && randomNumber<1/3){
-        computerMove='stone';
+        computerMove='rock';
     }
     else if (randomNumber>=1/3 && randomNumber<2/3){
         computerMove='paper';
@@ -19,7 +30,7 @@ function playGame(playerMove){
         computerMove='scissors';
     }
 
-    if (playerMove=='stone'){
+    if (playerMove=='rock'){
         if (computerMove=='paper'){
             result='You lose';
         }
